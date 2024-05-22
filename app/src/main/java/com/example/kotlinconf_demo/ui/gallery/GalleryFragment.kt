@@ -37,9 +37,11 @@ class GalleryFragment : Fragment() {
 
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        val shouldBeAlLCapes = binding.textGallery.text.toString()
 
         val textView: TextView = binding.textGallery
         galleryViewModel.text.observe(viewLifecycleOwner) {
+            textView.isAllCaps = shouldBeAlLCapes.equals(true)
             textView.text = it
         }
         return root
